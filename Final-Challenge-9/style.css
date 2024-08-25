@@ -66,14 +66,19 @@ h5{
 .split{
   display: flex;
   gap: calc(var(--spacer)*5);
-  flex-basis: 100%;
   flex-direction: column;
+}
+
+.split> *{
+  /* makes even columns */
+  flex-basis: 100%;
 }
 
 @media (min-width: 1000px) {
 
   .row{
     display: flex;
+    justify-content: space-between;
   }
 
   .split{
