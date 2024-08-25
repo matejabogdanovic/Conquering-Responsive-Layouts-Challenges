@@ -1,6 +1,8 @@
 *, *::before, *::after{ box-sizing: border-box; }
 
 :root{
+  --spacer: 1rem;
+
   --ff-100-oswald: "Oswald", sans-serif;
   --ff-200-montserrat: "Montserrat", sans-serif;
 
@@ -13,20 +15,24 @@
   --fs-900-90px: 5.625rem;
 
   --clr-neutral-100: #FFFFFF;
+  --clr-neutral-900: #000000;
   --clr-dark-100: #6F737F;
   --clr-dark-200: #3B4050;
   --clr-dark-300: #2E323F;
   --clr-gold: #A59678;
+  --clr-cream: #F1F1F0;
 
 }
 
 
 body{
-  font-family: var(--ff-100-oswald);
+  font-family: var(--ff-200-montserrat);
   margin: 0;
 }
 
 p{
+  font-size: inherit;
+  margin: 0;
   line-height: 1.6;
 }
 
@@ -35,6 +41,7 @@ h2,
 h3,
 h4,
 h5{
+  font-family: var(--ff-100-oswald);
   margin: 0;
   line-height: 1.1;
 }
@@ -46,17 +53,32 @@ h5{
   max-width: 1200px;
 }
 
-.spacing> * + *{
-  margin-top: var(--spacing-mobile, 3rem);
+/* vertical space */
+.flow-content> * + *{
+  margin-top: var(--flow-space, var(--spacer));
+}
+
+.flow-content--large{
+  --flow-space: 5rem;
+}
+
+/* horizontal space */
+.split{
+  display: flex;
+  gap: calc(var(--spacer)*5);
+  flex-basis: 100%;
+  flex-direction: column;
 }
 
 @media (min-width: 1000px) {
+
   .row{
     display: flex;
   }
 
-  .spacing> * + *{
-    margin-left: var(--spacing-desktop, 5rem);
+  .split{
+    flex-direction: row;
+    gap: calc(var(--spacer)*5);
   }
 }
 
@@ -67,13 +89,25 @@ h5{
 section{
   background-color: var(--bg);
   color: var(--fg);
+  /* font-size: min(var(--fs), 5vw); */
   font-size: var(--fs, inherit);
   padding: 10em 1rem;
+}
+
+@media (min-width: 1000px) {
+  section{
+    padding: 7em inherit;
+  }
 }
 
 .bg-dark{
   --fg: var(--clr-neutral-100);
   --bg: var(--clr-dark-200);
+  --accent: var(--clr-gold);
+}
+
+.bg-light{
+  --fg: var(--clr-neutral-900);
   --accent: var(--clr-gold);
 }
 /* reusable styles */
@@ -95,22 +129,24 @@ section{
 }
 /*  */
 .hero{
-  --fs: min(var(--fs-400-24px), 5vw);
-  --spacing-desktop: 0rem;
-  --spacing-mobile: 3rem;
-}
-
-.hero p{
-  font-family: var(--ff-200-montserrat);
+  --fs: var(--fs-400-24px);
 }
 
 @media (min-width: 1000px) {
+ 
   .hero__content{
     margin-top: auto;
+    --flow-space: var(--spacer);
   }
 }
 
+.post-hero{
+  text-align: center;
+  --fs: var(--fs-200-18px);
+  --bg: var(--clr-cream);
+}
 
-@media (min-width: 700px) {
-
+.post-hero h3{
+  color: var(--accent);
+  font-size: var(--fs-500-30px);
 }
