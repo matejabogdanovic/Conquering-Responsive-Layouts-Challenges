@@ -96,7 +96,7 @@ section{
   color: var(--fg);
   /* font-size: min(var(--fs), 5vw); */
   font-size: var(--fs, inherit);
-  padding: 6.5em 1rem;
+  padding: 4em 1rem;
 }
 
 @media (min-width: 1000px) {
