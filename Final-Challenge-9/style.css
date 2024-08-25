@@ -101,7 +101,7 @@ section{
 
 @media (min-width: 1000px) {
   section{
-    padding: 10em inherit;
+    padding: 8em 1rem;
   }
 }
 
