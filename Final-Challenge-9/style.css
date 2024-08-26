@@ -140,6 +140,7 @@ footer{
   padding: 6em 1rem;
 }
 
+
 @media (min-width: 700px) {
   section{
     padding: 8em 1rem;
@@ -195,6 +196,39 @@ h4{
   font-size: min(var(--fs-900-90px), 15vw);
 }
 /*  */
+#hamburger:checked+ label{
+  position: absolute;
+}
+
+.header{
+  font-family: var(--ff-100-oswald);
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: var(--clr-dark-300);
+  padding: 1em 0;
+}
+
+.header> div{
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.header ul{
+  gap: 4rem;
+}
+
+.header ul li{
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacer);
+}
+@media (min-width: 700px) {
+  .header ul li{
+    margin-top: 0rem;
+  }
+}
+
+/*  */
 .hero{
   --fs: var(--fs-400-24px);
 }
@@ -246,6 +280,7 @@ h4{
   }
 }
 /*  */
+
 .footer ul+ul{
  flex-basis: 30%;
 }
