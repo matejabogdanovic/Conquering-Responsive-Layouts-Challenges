@@ -12,6 +12,7 @@
   --fs-400-24px: 1.5rem;
   --fs-500-30px: 1.875rem;
   --fs-600-36px: 2.25rem;
+  --fs-800-64px: 4rem;
   --fs-900-90px: 5.625rem;
 
   --clr-neutral-100: #FFFFFF;
@@ -27,6 +28,18 @@
 
 body{
   font-family: var(--ff-200-montserrat);
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+ol[class],
+ul[class]{
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
@@ -57,6 +70,7 @@ img{
   width: 80%;
   max-width: 1200px;
 }
+
 
 /* vertical space */
 .flow-content> * + *{
@@ -119,7 +133,8 @@ img{
   color: var(--fg);
 }
 
-section{
+section,
+footer{
   /* font-size: min(var(--fs), 5vw); */
   font-size: var(--fs, inherit);
   padding: 6em 1rem;
@@ -137,8 +152,17 @@ section{
   --accent: var(--clr-gold);
 }
 
-.bg-dark h2{
+h2{
+  font-size: var(--fs-500-30px);
+}
+h3{
   font-size: var(--fs-400-24px);
+}
+h4{
+  font-size: var(--fs-300-21px);
+}
+.bg-dark h2{
+  color: var(--accent);
 }
 
 .bg-light{
@@ -146,14 +170,12 @@ section{
   --accent: var(--clr-gold);
 }
 
-.bg-light h3{
+.bg-light h2{
   color: var(--accent);
-  font-size: var(--fs-500-30px);
 }
 
 .bg-light h4{
   color: var(--accent);
-  font-size: var(--fs-300-21px);
 }
 /* reusable styles */
 .btn{
@@ -221,5 +243,18 @@ section{
 
   .middle img{
     aspect-ratio: auto;
+  }
+}
+/*  */
+.footer ul+ul{
+ flex-basis: 30%;
+}
+.footer-title{
+  font-size: min(var(--fs-800-64px), 15vw);
+  text-align: center;
+}
+@media (min-width: 700px) {
+  .footer-title{
+    margin: 0 auto 8rem auto;
   }
 }
