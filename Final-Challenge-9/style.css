@@ -1,4 +1,6 @@
-*, *::before, *::after{ box-sizing: border-box; }
+*, *::before, *::after{ 
+  box-sizing: border-box;    -webkit-tap-highlight-color: transparent;
+}
 
 :root{
   --spacer: 2rem;
@@ -196,10 +198,6 @@ h4{
   font-size: min(var(--fs-900-90px), 15vw);
 }
 /*  */
-#hamburger:checked+ label{
-  position: absolute;
-}
-
 .header{
   font-family: var(--ff-100-oswald);
   font-weight: bold;
@@ -208,9 +206,26 @@ h4{
   padding: 1em 0;
 }
 
+.header> div> div:first-child{
+  display: flex;
+  justify-content: space-between;
+}
+
 .header> div{
   flex-wrap: wrap;
   gap: 2rem;
+}
+
+.label-hamburger{
+  cursor: pointer;
+}
+
+#hamburger:checked + nav{
+  display: block;
+}
+
+.header nav{
+  display: none;
 }
 
 .header ul{
@@ -222,7 +237,16 @@ h4{
   align-items: center;
   margin-top: var(--spacer);
 }
+
 @media (min-width: 700px) {
+  .header nav{
+    display: block;
+  }
+
+  .label-hamburger{
+    display: none;
+  }
+
   .header ul li{
     margin-top: 0rem;
   }
@@ -280,15 +304,24 @@ h4{
   }
 }
 /*  */
+.footer{
+  --flow-space: calc(var(--spacer)/2);
+}
 
 .footer ul+ul{
  flex-basis: 30%;
 }
+
 .footer-title{
   font-size: min(var(--fs-800-64px), 15vw);
   text-align: center;
+  margin: 0 auto 4rem auto;
 }
 @media (min-width: 700px) {
+  .footer{
+    --flow-space: var(--spacer);
+  }
+
   .footer-title{
     margin: 0 auto 8rem auto;
   }
